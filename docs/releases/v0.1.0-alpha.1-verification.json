@@ -1,0 +1,16 @@
+{
+  "verifiedAt": "2026-10-12T15:28:05.155Z",
+  "repo": "https://github.com/duclucky/agent-commitments",
+  "release": "v0.1.0-alpha.1",
+  "archiveUrl": "https://github.com/duclucky/agent-commitments/releases/download/v0.1.0-alpha.1/agent-commitments-sdk-0.1.0-alpha.1.tgz",
+  "sha256": "15318e0ea053ef05f2f678c95dc369d8929a515df00b0fcb484275598ddb53dc",
+  "anonymousDownload": true,
+  "isolatedNpmInstall": true,
+  "esmStarter": true,
+  "broadcast": false,
+  "ciUrl": "https://github.com/duclucky/agent-commitments/actions/runs/38269940745",
+  "ciConclusion": "success",
+  "releaseCommit": "1ce042a6c0c9d0e178072c50a111593939b7f8d7",
+  "upstreamProposal": "https://github.com/circlefin/arc-escrow/pull/56",
+  "upstreamMerged": false
+}
