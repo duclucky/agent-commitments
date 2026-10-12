@@ -258,7 +258,7 @@ try {
   browser = spawn(browserPath, [
     "--headless=new", `--remote-debugging-port=${debugPort}`, "--remote-allow-origins=*",
     `--user-data-dir=${profilePath}`, "--no-first-run", "--disable-default-apps", "about:blank",
-  ], { stdio: "ignore" });
+  ], { stdio: ["ignore", "ignore", "inherit"] });
   const target = await waitFor("Browser debug target", async () => {
     const response = await fetch(`http://127.0.0.1:${debugPort}/json/list`);
     const targets = await response.json();
