@@ -3,16 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "exports": { ".": "./dist/index.js" },
+  "exports": {
+    ".": "./dist/index.js"
+  },
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
-    "test": "vitest run --exclude dist/**",
+    "test": "vitest run --exclude \"dist/**\"",
     "test:failure": "vitest run src/outbox.failure.test.ts",
-    "test:integration": "vitest run src/runtime.integration.test.ts src/postgres.integration.test.ts --exclude dist/**",
+    "test:integration": "vitest run src/runtime.integration.test.ts src/postgres.integration.test.ts --exclude \"dist/**\"",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
-  "dependencies": { "pg": "8.16.3", "viem": "2.57.4" },
-  "devDependencies": { "@types/pg": "8.15.5" }
+  "dependencies": {
+    "pg": "8.16.3",
+    "viem": "2.57.4"
+  },
+  "devDependencies": {
+    "@types/pg": "8.15.5"
+  }
 }

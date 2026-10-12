@@ -7,7 +7,7 @@
     "build": "tsc -p tsconfig.json",
     "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
     "pretest": "pnpm --filter @agent-commitments/network-config build && pnpm --filter @agent-commitments/sdk build",
-    "test": "vitest run --exclude dist/**",
+    "test": "vitest run --exclude \"dist/**\"",
     "pretypecheck": "pnpm --filter @agent-commitments/network-config build && pnpm --filter @agent-commitments/sdk build",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
