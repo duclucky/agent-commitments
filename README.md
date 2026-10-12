@@ -132,6 +132,10 @@ pnpm check:docs
 - Evaluator decisions and issuer restrictions affect acceptance/refund liveness. Guarantees apply only to supported flows through these contracts.
 - Hosted operation still needs ingress rate limits, TLS, monitoring and backups. No external customer adoption is verified.
 
+See the [documentation index](docs/README.md) for current guides, release evidence and historical drafts.
+
+Agent Commitments is listed in [ResolveSignal Toolkits](https://resolvesignal.com/toolkits). It complements the paid decision API with budget primitives; a direct x402 integration is pending. Agent Starter is planned.
+
 Read [architecture](docs/architecture.md), [threat model](docs/threat-model.md), [recovery](docs/runbooks/recovery.md), [security](SECURITY.md), [contributing](CONTRIBUTING.md) and [changelog](CHANGELOG.md). Primary builder documentation is English; dated research/operator notes may retain their original Vietnamese text.
 
 ## License
