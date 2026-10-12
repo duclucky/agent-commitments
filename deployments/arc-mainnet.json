@@ -1,0 +1,234 @@
+{
+  "schemaVersion": 1,
+  "network": "Arc Mainnet",
+  "chainId": 5042,
+  "rpcUrl": "https://rpc.mainnet.arc.io",
+  "explorerUrl": "https://explorer.arc.io",
+  "deployedAt": "2026-10-12",
+  "deploymentStatus": "bound-mainnet-internal-pilot-complete",
+  "sourceRevision": null,
+  "sourceRevisionNote": "The workspace was not a Git checkout at deployment time.",
+  "toolchain": {
+    "forge": "1.7.1 (4072e48705af9d93e3c0f6e29e93b5e9a40caed8)",
+    "solc": "0.8.30",
+    "optimizer": true,
+    "optimizerRuns": 200,
+    "evmVersion": "cancun"
+  },
+  "owner": "0x7329d0F937dAa2f16Ff0869C5E05a907A4c17dC2",
+  "usdc": {
+    "address": "0x3600000000000000000000000000000000000000",
+    "decimals": 6
+  },
+  "checkedCreate2Deployer": {
+    "address": "0x01c9f78F19aCe62D3517AE883984b60Ab72Ee94C",
+    "transactionHash": "0x707b28ffdced14cd26b4b4a8221e6a256490783057f837b45a64be07e05daaed",
+    "blockNumber": 25452794,
+    "factory": "0xce0042B868300000d44A59004Da54A005ffdcf9f",
+    "salt": "0x3108a32fdddfbf1d7a8052c895a23a6547e5c49f967758cec07afab857bf8651",
+    "codeBytes": 29,
+    "codeHash": "0x22a9e66bcbe5f28a79782628910aedfc45cfbbca94dbdf77e06e8cea203ddeb0",
+    "gasUsed": "165860",
+    "effectiveGasPriceWei": "21000000000",
+    "receiptGasCostWei": "3483060000000000",
+    "circleReportedNetworkFeeUSDC": "0.004418049"
+  },
+  "budgetVault": {
+    "address": "0x2415a87B0b9280C1989F03ceA9DC1c3644777862",
+    "transactionHash": "0xe20da8e008b59a04d5a807667bd1446a8edfe394a2c96726a1d6a297a5de8e82",
+    "blockNumber": 25452868,
+    "deployer": "0x01c9f78F19aCe62D3517AE883984b60Ab72Ee94C",
+    "salt": "0x85fbbceccb6a18a5ba60f83ed09b34de8a7e90ce710317098fe0018bbb082dd4",
+    "codeBytes": 12420,
+    "codeHash": "0x9d39228432ff3a2fed8a959c9a8692109f0fb5f77db12d3b7061089fda388bc2",
+    "gasUsed": "3071544",
+    "effectiveGasPriceWei": "21000000000",
+    "receiptGasCostWei": "64502424000000000",
+    "circleReportedNetworkFeeUSDC": "0.07519581075"
+  },
+  "policy": {
+    "rootGrantId": "0x02f05d19a8c5f202be208fca179ffc39247e449527cc0a8604e7168f749d9622",
+    "rootExpiresAt": 1799539200,
+    "depositCap": "1000000",
+    "maxCommitmentAmount": "100000",
+    "maxConcurrentCommitments": "1"
+  },
+  "expectedState": {
+    "adapter": "0x0db5f0CC38F86e60FEbe495d4fFAF2Bb0288704d",
+    "paused": false,
+    "activeCommitments": "0",
+    "ledger": {
+      "deposited": "10000",
+      "available": "0",
+      "reserved": "0",
+      "inEscrow": "0",
+      "settled": "5000",
+      "withdrawn": "5000"
+    },
+    "vaultTokenBalance": "0",
+    "rootGrant": {
+      "reserved": "0",
+      "inEscrow": "0",
+      "grossSpent": "5000"
+    }
+  },
+  "walletConsolidation": {
+    "destination": "0x7329d0F937dAa2f16Ff0869C5E05a907A4c17dC2",
+    "amountReceivedAtomic18": "32000000000000000",
+    "destinationBalanceAfterAtomic6": "52000",
+    "transfers": [
+      {
+        "source": "0x502186afa3c51d68aad65b1ef7e2a9dcd336351f",
+        "amountAtomic18": "8000000000000000",
+        "transactionHash": "0xbe9be2052dff183b9ed889ab105044c1d93a1a2615b8421d893447b6b44fe362",
+        "blockNumber": 25452037,
+        "gasUsed": "139932",
+        "effectiveGasPriceWei": "21000000000",
+        "receiptGasCostWei": "2938572000000000",
+        "circleReportedNetworkFeeUSDC": "0.00381073525"
+      },
+      {
+        "source": "0xfb61638814d7f5037af1fb15303c226f9c4e397d",
+        "amountAtomic18": "8000000000000000",
+        "transactionHash": "0x4adb65c7716154ee7bb1ccf48b1bcc5dc645d61a4225c204a324f7aa161f6aae",
+        "blockNumber": 25452075,
+        "gasUsed": "139920",
+        "effectiveGasPriceWei": "21000000000",
+        "receiptGasCostWei": "2938320000000000",
+        "circleReportedNetworkFeeUSDC": "0.003939187261185225"
+      },
+      {
+        "source": "0x3552c1d33372544d773cc62b4547b2d27b64ae37",
+        "amountAtomic18": "8000000000000000",
+        "transactionHash": "0x299523aea207ec3916271d7499975837935f8ef49fde8fc2fb78a932765efb35",
+        "blockNumber": 25452100,
+        "gasUsed": "139932",
+        "effectiveGasPriceWei": "21000000000",
+        "receiptGasCostWei": "2938572000000000",
+        "circleReportedNetworkFeeUSDC": "0.003939444157834465"
+      },
+      {
+        "source": "0x2290ad8d00f08b2867bf295cb51847eebab38b8b",
+        "amountAtomic18": "8000000000000000",
+        "transactionHash": "0x19bcbc45f49f527637c31801333f369f9673e89e81e6a86c9d3c58f5819a3cda",
+        "blockNumber": 25452123,
+        "gasUsed": "139932",
+        "effectiveGasPriceWei": "21000000000",
+        "receiptGasCostWei": "2938572000000000",
+        "circleReportedNetworkFeeUSDC": "0.004474334597625"
+      }
+    ]
+  },
+  "failedAttempts": [
+    {
+      "description": "Direct ERC-2470 CREATE2 call completed at the account layer but returned the zero address after the inner creation ran out of gas.",
+      "transactionHash": "0xbf40f1d685e6976de3fe59d89e80549cde5cfef6bfd5c33ef00d9f01047af16b",
+      "blockNumber": 25452246,
+      "predictedAddress": "0x4901F391BE7ba4AB93C82C3Be139cA9834da6DD5",
+      "expectedCodeBytes": 0,
+      "gasUsed": "597000",
+      "effectiveGasPriceWei": "21000000000",
+      "receiptGasCostWei": "12537000000000000",
+      "circleReportedNetworkFeeUSDC": "0.032092188069123"
+    }
+  ],
+  "erc8183Adapter": null,
+  "adapterStatusNote": "No official Arc mainnet ERC-8183 reference address was verified. The self-hosted draft candidate v2 is bound and its limited internal pilot is complete under an explicit user exception. Independent review remains pending; this is not approval for broader production use.",
+  "draftCandidate": {
+    "deployedAt": "2026-10-12",
+    "standard": "ERC-8183 Draft normative interface reviewed 2026-10-12; subset and limitations in ADR 0005",
+    "plan": "deployments/arc-mainnet-draft-candidate-plan.json",
+    "escrow": {
+      "address": "0x19E14a1006d106882D4c24584AAA6Ce1771E4151",
+      "contractName": "AgenticCommerceEscrow",
+      "transactionHash": "0xc47a01334079828dd2f6d39fabc4b2e581321b387539021fcc639907128a2569",
+      "blockNumber": 25454811,
+      "codeBytes": 6877,
+      "codeHash": "0xd7d2f4b47c3ead3ae5bcaa7db790d5841577aa347cf7b433a8dbdf9566a882fb",
+      "gasUsed": "1755833",
+      "effectiveGasPriceWei": "21000000000",
+      "circleReportedNetworkFeeUSDC": "0.0430582",
+      "estimatedMaximumNetworkFeeUSDC": "0.11631040525",
+      "idempotencyKey": "fb8e5c55-9805-4d79-93e3-866fda95d0c1",
+      "receiptGasCostWei": "36872493000000000"
+    },
+    "adapter": {
+      "address": "0x0db5f0CC38F86e60FEbe495d4fFAF2Bb0288704d",
+      "contractName": "ERC8183DraftAdapter",
+      "transactionHash": "0x9faf77f6f2ef42741262f7989702f93487526b67748d8d14acf8863e08ce05f5",
+      "blockNumber": 25520773,
+      "codeBytes": 7028,
+      "codeHash": "0xac4382e1add9828e48bce8c0569fa77d53442cfa7e3ae8832270f75afead4da6",
+      "gasUsed": "1760504",
+      "effectiveGasPriceWei": "21000000000",
+      "circleReportedNetworkFeeUSDC": "0.05162248959664991",
+      "estimatedMaximumNetworkFeeUSDC": "0.1166641645",
+      "idempotencyKey": "02d1575d-5fce-4d50-b8d8-2e4aa2a73518",
+      "revision": 2,
+      "receiptGasCostWei": "36970584000000000"
+    },
+    "supersededAdapters": [
+      {
+        "address": "0xBB3D6a8Bf71a92b62ae20A964B172Fad606080CD",
+        "transactionHash": "0x3f51ec2bcaf1e51dd2c622c50071476e7cbd35e9c79b2a109cd6fb0ce5705654",
+        "blockNumber": 25520211,
+        "codeBytes": 6514,
+        "codeHash": "0x69d14b519864b9e6ea094409c15fd1de1a5fb4b5051ac49c3b3b5a53ef215919",
+        "gasUsed": "1648346",
+        "effectiveGasPriceWei": "21000000000",
+        "circleReportedNetworkFeeUSDC": "0.04045741975",
+        "idempotencyKey": "ac68af3c-51f0-42d4-8bd9-8e84a61a8602",
+        "bound": false,
+        "reason": "Dispatch did not reject revoked or expired grant ancestry. Funding remained protected by BudgetVault. Never bind this superseded adapter.",
+        "receiptGasCostWei": "34615266000000000"
+      }
+    ],
+    "adapterRevision": 2,
+    "expectedState": {
+      "escrowPaused": false,
+      "totalEscrowed": "0",
+      "nextJobId": "3",
+      "escrowTokenBalance": "0",
+      "adapterTokenBalance": "0",
+      "adapterEscrowAllowance": "0"
+    },
+    "bound": true,
+    "funded": true,
+    "independentSecurityReview": false,
+    "sourceVerification": "not-published"
+  },
+  "funded": true,
+  "operationalStatus": "limited-pilot-bound-empty-budget",
+  "sourceVerification": "not-published",
+  "independentSecurityReview": false,
+  "feeAccounting": {
+    "receiptGasCostWei": "200734863000000000",
+    "receiptGasCostUSDC": "0.200734863",
+    "circleReportedNetworkFeeUSDC": "0.2630078584324176",
+    "note": "Receipt gasUsed * effectiveGasPrice and Circle reported networkFee are different measures. Neither proves the net amount charged to the wallet; its current balance is verified separately."
+  },
+  "toolAssistedSelfReview": {
+    "provider": "Circle Arc Studio",
+    "date": "2026-10-12",
+    "report": "docs/audits/arc-studio-audit-2026-10-12.md",
+    "sourceManifest": "docs/audits/arc-studio-source-manifest-2026-10-12.json",
+    "studioUrl": "https://studio.arc.io/app/caac8290-b4d2-4489-aa78-fb294c2d155e",
+    "testsPassed": 55,
+    "fuzzRuns": 1024,
+    "staticAnalysisCoverage": "partial; Slither reference/inheritance/IR errors",
+    "independentHumanAudit": false,
+    "activationApproval": false
+  },
+  "pilot": {
+    "journal": "deployments/arc-mainnet-pilot-journal.json",
+    "completedAt": "2026-10-12T11:20:26.058Z",
+    "internalTesting": true,
+    "depositAmountUnits": "10000",
+    "settledAmountUnits": "5000",
+    "withdrawnAmountUnits": "5000",
+    "independentReviewException": true,
+    "independentHumanAudit": false,
+    "feeCeilingUSDC": "0.30",
+    "evidence": "deployments/arc-mainnet-pilot-evidence.json"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@agent-commitments/provider-example",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "pretest": "pnpm --filter @agent-commitments/network-config build && pnpm --filter @agent-commitments/sdk build",
+    "test": "vitest run --exclude dist/**",
+    "pretypecheck": "pnpm --filter @agent-commitments/network-config build && pnpm --filter @agent-commitments/sdk build",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@agent-commitments/sdk": "workspace:*",
+    "fastify": "5.12.5",
+    "viem": "2.57.4",
+    "zod": "4.6.5"
+  }
+}

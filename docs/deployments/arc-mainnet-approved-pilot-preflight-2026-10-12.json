@@ -1,0 +1,45 @@
+{
+  "checkedAt": "2026-10-12T11:05:00.683Z",
+  "observedBlock": "25571975",
+  "chainId": 5042,
+  "broadcasts": 0,
+  "authorization": {
+    "source": "Direct human reply to pilot-scope question",
+    "acceptedScope": true,
+    "independentReviewException": true,
+    "independentHumanAudit": false,
+    "depositAmountUnits": "10000",
+    "totalFeeCeilingUnits": "300000",
+    "provider": "0xDc69A0851c1a7C887bEe33f0A58a675E2Edc0C4c",
+    "evaluator": "0x7329d0F937dAa2f16Ff0869C5E05a907A4c17dC2",
+    "owner": "0x7329d0F937dAa2f16Ff0869C5E05a907A4c17dC2",
+    "adapter": "0x0db5f0CC38F86e60FEbe495d4fFAF2Bb0288704d"
+  },
+  "walletBalances": [
+    {
+      "address": "0x7329d0F937dAa2f16Ff0869C5E05a907A4c17dC2",
+      "amountUnits": "2026305"
+    },
+    {
+      "address": "0x502186afA3c51d68aad65b1eF7e2a9dCd336351F",
+      "amountUnits": "12000"
+    },
+    {
+      "address": "0xFB61638814d7F5037af1fB15303C226F9C4E397d",
+      "amountUnits": "12000"
+    },
+    {
+      "address": "0x3552C1d33372544D773CC62B4547b2d27B64AE37",
+      "amountUnits": "12000"
+    },
+    {
+      "address": "0x2290AD8D00f08b2867bf295Cb51847EebAb38B8b",
+      "amountUnits": "12000"
+    }
+  ],
+  "providerBalanceUnits": "0",
+  "ownerFundingTargetUnits": "310000",
+  "ownerAdditionalFundsForFullCeilingUnits": "0",
+  "fundedForFullCeiling": true,
+  "note": "Funding target reserves the approved maximum, not an estimate of actual fees; native and ERC-20 USDC are not summed."
+}

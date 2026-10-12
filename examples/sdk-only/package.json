@@ -1,0 +1,19 @@
+{
+  "name": "@agent-commitments/sdk-only-example",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "preexample": "pnpm --filter @agent-commitments/network-config build && pnpm --filter @agent-commitments/sdk build",
+    "pretypecheck": "pnpm --filter @agent-commitments/network-config build && pnpm --filter @agent-commitments/sdk build",
+    "example": "tsx src/index.ts",
+    "example:testnet": "tsx src/testnet-readonly.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@agent-commitments/sdk": "workspace:*",
+    "viem": "2.57.4"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "completedAt": "2026-10-12T11:20:26.058Z",
+  "chainId": 5042,
+  "receiptCount": 19,
+  "circleFeeReservationUSDC": "0.141405937026392879",
+  "providerReceiptGasUSDC": "0.00434257525013232",
+  "combinedFeeMeasureUSDC": "0.145748512276525199",
+  "approvedCeilingUSDC": "0.30",
+  "ownerBalanceBeforeUSDC": "2.026305",
+  "ownerBalanceAfterUSDC": "2.001305",
+  "providerBalanceAfterUSDC": "0.020657",
+  "providerFundedUSDC": "0.02",
+  "providerPayoutUSDC": "0.005",
+  "note": "Circle networkFee and receipt gas are reported measures; they do not independently prove wallet billing. Provider transfer is internal funding, not an additional fee. Native and ERC-20 USDC balances are one pool."
+}

@@ -1,0 +1,38 @@
+name: local-only checks
+
+on:
+  pull_request:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.15.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: v1.7.1
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: pnpm typecheck
+      - run: pnpm lint
+      - run: pnpm test
+      - run: pnpm test:invariants
+      - run: pnpm test:failure
+      - run: pnpm test:integration
+      - run: pnpm test:e2e
+      - run: pnpm test:mainnet-console
+      - run: pnpm test:mainnet-pilot-policy
+      - run: pnpm test:sdk-package
+      - run: pnpm test:deployment-rehearsal
+      - run: pnpm check:docs

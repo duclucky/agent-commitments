@@ -1,0 +1,173 @@
+{
+  "status": "completed",
+  "appId": "caac8290-b4d2-4489-aa78-fb294c2d155e",
+  "threadId": "61bfa3f8-95bc-4d25-951c-25cb8d43addb",
+  "sandboxId": "ik8n5ygxebsspj38b3nz7",
+  "finalText": "Reading all source files in parallel. Setting up the isolated Foundry sandbox. Now let me write the PoC tests for findings I've already identified, then run all tests together. Slither is available. Running it while tests compile. Many non-ASCII em-dashes in comments throughout the file. Let me replace them all: Good. Two of my own PoC tests need correcting — F-01 logic (pre-price tried wrong jobId) and F-08 (cap was 50e6 but test deposits 100e6, allowing sibling). Let me examine and fix: The F-01 test tried to pre-price a job that doesn't exist yet (dispatch hasn't been called). The test intent is simply to document permissionless dispatch. I'll fix it to just call dispatch without prior setBudget: Now fix F-08: the cap check walks the ancestry. Root cap=50e6, child caps=50e6 each. When agentA reserves 50e6, root.reserved=50e6=cap. agentB then tries 1e6: root.reserved+inEscrow+grossSpent+1e6 = 50e6+1 > 50e6 should revert. But I need the root cap to be 50e6 while deposit can still hold 100e6. The issue is I set `maxCommitmentAmount = 50e6` but root grant cap = depositCap = 100e6. Let me check constructor again: root grant cap = depositCapValue. So if depositCap=100e6, root cap is 100e6, not 50e6. I need to set up the test differently. I see the issue: `BudgetVault` constructor sets `depositCap = depositCapValue` and the root grant cap = `depositCapValue`. So if depositCap=100e6, root.cap=100e6, not 50e6. maxCommitmentAmount=50e6 is the per-commitment cap. The child grants have cap=50e6 but root cap=100e6, so both siblings can reserve 50e6 each (total 100e6 == root.cap). The test was wrong to expect a block -- actually the root cap tracking IS working, they share the parent cap, but with a root cap of 100e6 two 50e6 reservations fit. The test was wrong in thinking siblings can exceed the parent — they can't, the parent cap prevents it. Let me rewrite this test to actually document this correctly: since root cap == depositCap == 100e6, and each child cap is 50e6, the two siblings can each use 50e6. The FINDING is actually that there is no separate \"budget tracking across children at creation time\" — a parent can have two children each with cap=parentCap, so combined they could exhaust twice the cap. But the reserve-time walk-up prevents that correctly.\n\nThis actually confirms the system IS correct: the reserve-time ancestry walk prevents over-commitment. Let me revise the test to actually PROVE the correct behavior: All 51 tests pass. Now check Slither output: Now writing the full Vietnamese audit report: Now write the machine-readable findings JSON: Audit complete. Here is a summary of what was done and what was found.\n\n---\n\n## Ket qua kiem toan\n\n**Files:** `reports/agent-commitments-audit.md` (bao cao tieng Viet), `reports/agent-commitments-findings.json` (may doc duoc).\n\n### Cong cu va phien ban\n\n| Cong cu | Ket qua |\n|---|---|\n| forge 1.7.1 | **51/51 tests PASS** (35 baseline + 16 PoC moi, bao gom 4x fuzz x 256 runs) |\n| Slither | Chay thanh cong, 51 ket qua, 24 contracts, 102 detectors |\n| Aderyn | Khong co trong sandbox |\n\n### SHA-256 nguon\n\n- `BudgetVault.sol`: `835e265538...`\n- `AgenticCommerceEscrow.sol`: `233f739746...`\n- `ERC8183DraftAdapter.sol`: `20cbcf01b8...`\n- `IAgenticCommerceDraft.sol`: `ca95a9ba2b...`\n\n### Phat hien theo muc do\n\n| Muc do | So luong | Tom tat |\n|---|---|---|\n| **CAO** | 1 | **F-06**: USDC blacklist co the dong bang USDC trong adapter vinh vien khi refund |\n| **TRUNG BINH** | 3 | F-04: setAdapter bat bien; F-12: cuoc cha revoke/expire; F-13: gia dinh Arc-only |\n| **THAP** | 10 | Permissionless dispatch/fund/reconcile (thiet ke co chu dich); orphan jobs; nonce; thiếu nonReentrant (khong the khai thac); donation lock; v.v. |\n\n### Phat hien quan trong nhat\n\n**F-06 (CAO):** Sau khi evaluator reject mot job, USDC duoc tra ve adapter. Neu dia chi adapter bi USDC mainnet blacklist truoc khi `adapter.reconcile()` chay, lenh `safeTransferFrom(adapter -> vault)` se revert vinh vien. USDC bi dong bang, vault ledger sai, slot commitment khong duoc giai phong. PoC test: `testPoC_F09_BlacklistBlocksRefundPath`. **Nen them co che khoi phuc truoc khi ket noi adapter co USDC.**\n\n**F-04 (TRUNG BINH):** `setAdapter` la bat bien. Neu adapter co loi sau khi vault co USDC, buoc phai trien khai vault moi. ADR-0005 da ghi nhan rang buoc nay cho pilot.\n\n**Tat ca bat bien bao toan D=A+R+E+S+W, chong replay EIP-712, chinh xac mot lan (dat coc/fund/quyet toan/hoan tien), bao ve reentrancy, va bao dam vat ly deu HOAT DONG DUNG** -- duoc xac nhan bang 512 runs fuzz tren 4 tinh chat.\n\n<button data-quick-action=\"true\" data-type=\"file\" data-path=\"reports/agent-commitments-audit.md\">Mo bao cao day du (tieng Viet)</button>",
+  "todos": [
+    {
+      "id": "todo:read all source contracts and interfaces:0",
+      "text": "Read all source contracts and interfaces",
+      "status": "done"
+    },
+    {
+      "id": "todo:read all test files and adr-0005:0",
+      "text": "Read all test files and ADR-0005",
+      "status": "done"
+    },
+    {
+      "id": "todo:set up isolated foundry sandbox with copied sources:0",
+      "text": "Set up isolated Foundry sandbox with copied sources",
+      "status": "done"
+    },
+    {
+      "id": "todo:run slither / static analysis if available:0",
+      "text": "Run Slither / static analysis if available",
+      "status": "done"
+    },
+    {
+      "id": "todo:write poc tests for key findings:0",
+      "text": "Write PoC tests for key findings",
+      "status": "done"
+    },
+    {
+      "id": "todo:run forge test and capture output:0",
+      "text": "Run forge test and capture output",
+      "status": "done"
+    },
+    {
+      "id": "todo:write vietnamese audit report:0",
+      "text": "Write Vietnamese audit report",
+      "status": "done"
+    }
+  ],
+  "filesChanged": [
+    "audit/contracts/foundry.toml",
+    "audit/contracts/test/AuditPoC.t.sol",
+    "reports/agent-commitments-audit.md",
+    "reports/agent-commitments-findings.json"
+  ],
+  "fileDiffs": [
+    {
+      "path": "audit/contracts/foundry.toml",
+      "action": "write",
+      "addedLines": 18,
+      "removedLines": 0,
+      "isFragment": false,
+      "truncated": true,
+      "hunk": "+[profile.default]\n+src = \"src\"\n+test = \"test\"\n+out = \"out\"\n+cache_path = \"cache\"\n+libs = [\"../../node_modules\"]\n+solc_version = \"0.8.30\"\n+optimizer = true"
+    },
+    {
+      "path": "audit/contracts/test/AuditPoC.t.sol",
+      "action": "write",
+      "addedLines": 971,
+      "removedLines": 0,
+      "isFragment": false,
+      "truncated": true,
+      "hunk": "+// SPDX-License-Identifier: Apache-2.0\n+// Audit PoC tests — isolated sandbox only, fixed public local keys, never on shared networks.\n+pragma solidity 0.8.30;\n+\n+import {BudgetVault} from \"../src/BudgetVault.sol\";\n+import {AgenticCommerceEscrow} from \"../src/AgenticCommerceEscrow.sol\";\n+import {ERC8183DraftAdapter} from \"../src/ERC8183DraftAdapter.sol\";\n+import {IAgenticCommerceDraft} from \"../src/interfaces/IAgenticCommerceDraft.sol\";"
+    },
+    {
+      "path": "audit/contracts/test/AuditPoC.t.sol",
+      "action": "edit",
+      "addedLines": 1,
+      "removedLines": 1,
+      "isFragment": true,
+      "truncated": true,
+      "hunk": "-        assertEq(job.budget, 0, \"no budget set — no economic risk\");\n+        assertEq(job.budget, 0, \"no budget set - no economic risk\");"
+    },
+    {
+      "path": "audit/contracts/test/AuditPoC.t.sol",
+      "action": "edit",
+      "addedLines": 1,
+      "removedLines": 1,
+      "isFragment": true,
+      "truncated": true,
+      "hunk": "-        // Escrow job still Open — no budget, no funds at risk\n+        // Escrow job still Open - no budget, no funds at risk"
+    },
+    {
+      "path": "audit/contracts/test/AuditPoC.t.sol",
+      "action": "edit",
+      "addedLines": 6,
+      "removedLines": 6,
+      "isFragment": true,
+      "truncated": true,
+      "hunk": "         vault.setAdapter(adapterA);\n-        assertEq(vault.adapter(), adapterA, \"adapter A set\");\n+        assertTrue(vault.adapter() == adapterA, \"adapter A set\");\n \n         (bool ok,) = address(vault).call(abi.encodeCall(vault.setAdapter, (adapterB)));\n         assertTrue(!ok, \"second setAdapter must revert\");\n-        assertEq(vault.adapter(), adapterA, \"adapter unchanged\");\n+        assertTrue(vault.adapter() == adapterA, \"adapter unchanged\");"
+    },
+    {
+      "path": "audit/contracts/test/AuditPoC.t.sol",
+      "action": "edit",
+      "addedLines": 11,
+      "removedLines": 12,
+      "isFragment": true,
+      "truncated": true,
+      "hunk": "     function testPoC_F01_AnyCallerCanDispatch() public {\n         bytes32 commitment = _reserve(keccak256(\"poc-f01-op\"), 10e6);\n         address stranger = address(0xBADBAD);\n-        vm.prank(provider);\n-        escrow.setBudget(escrow.nextJobId(), 10e6, \"\"); // pre-price next slot (not yet dispatched)\n \n-        // dispatch() has no msg.sender restriction\n-        vm.prank(stranger);\n+        // dispatch() has no msg.sender restriction -- any EOA can call it\n+        vm.prank(stranger);\n+        uint256 jobId = adapter.dispatch(commitment);\n+        assertTrue(jobId != 0, \"stranger successfully dispatched\");"
+    },
+    {
+      "path": "audit/contracts/test/AuditPoC.t.sol",
+      "action": "edit",
+      "addedLines": 63,
+      "removedLines": 50,
+      "isFragment": true,
+      "truncated": true,
+      "hunk": "-// F-08: Grant cap does NOT count future grants from the same parent -\n-//        two child grants can each have cap == parentCap, potentially\n-//        allowing combined reservations exceeding parent cap\n+// F-08: Grant cap at creation is NOT validated against the sum of existing child caps.\n+//        Two children can each be created with cap == parentCap. The _applyReserve walk-up\n+//        ensures runtime enforcement. This test documents:\n+//        (a) siblings CAN be created each with cap == parentCap (no creation-time sibling sum check)\n+//        (b) reserve-time walk-up correctly prevents over-commitment against the parent cap\n // ---------------------------------------------------------------------------\n-contract PoC_F08_SiblingGrantsCanExceedParentCapWhenReserving is Assertions {\n-    MockUSDC token;\n-    BudgetVault vault;\n-    bytes32 rootId;\n+contract PoC_F08_SiblingGrantCreationCapNotSumChecked is Assertions {\n+    MockUSDC token;"
+    },
+    {
+      "path": "reports/agent-commitments-audit.md",
+      "action": "write",
+      "addedLines": 591,
+      "removedLines": 0,
+      "isFragment": false,
+      "truncated": true,
+      "hunk": "+# Bao Cao Kiem Toan Bao Mat: Agent Commitments Contract Suite\n+\n+> **Luu y quan trong:** Day la ket qua phan tich tu dong va kiem tra thu cong trong moi truong sandbox co lap. Day KHONG PHAI la kiem toan chuyen nghiep doc lap, KHONG PHAI la chung nhan Circle, va KHONG DUOC SU DUNG lam can cu trien khai mainnet. Moi quyet dinh trien khai phai duoc xem xet doc lap boi chuyen gia bao mat co kinh nghiem.\n+\n+---\n+\n+## 1. Thong tin chung"
+    },
+    {
+      "path": "reports/agent-commitments-findings.json",
+      "action": "write",
+      "addedLines": 294,
+      "removedLines": 0,
+      "isFragment": false,
+      "truncated": true,
+      "hunk": "+{\n+  \"audit\": {\n+    \"date\": \"2026-10-12\",\n+    \"tool_versions\": {\n+      \"forge\": \"1.7.1 (commit 4072e48705af9d93e3c0f6e29e93b5e9a40caed8)\",\n+      \"slither\": \"available (ran successfully)\",\n+      \"aderyn\": \"not available\"\n+    },"
+    }
+  ],
+  "contextFiles": [],
+  "workspaceFiles": [],
+  "deployments": [],
+  "artifacts": {
+    "contractSources": [
+      "contracts/script/Create2Factory.sol",
+      "contracts/script/DeployCreate2.s.sol"
+    ],
+    "abis": [
+      "contracts/out/StdStyle.sol/StdStyle.json",
+      "contracts/out/Vm.sol/Vm.json",
+      "contracts/out/Vm.sol/VmSafe.json",
+      "contracts/out/console.sol/console.json",
+      "contracts/out/IMulticall3.sol/IMulticall3.json",
+      "contracts/out/Errors.sol/Errors.json",
+      "contracts/out/StdCheats.sol/StdCheatsSafe.json",
+      "contracts/out/StdCheats.sol/StdCheats.json",
+      "contracts/out/Base.sol/TestBase.json",
+      "contracts/out/Base.sol/CommonBase.json",
+      "contracts/out/Base.sol/ScriptBase.json",
+      "contracts/out/StdJson.sol/stdJson.json",
+      "contracts/out/StdConstants.sol/StdConstants.json",
+      "contracts/out/safeconsole.sol/safeconsole.json",
+      "contracts/out/StdChains.sol/StdChains.json",
+      "contracts/out/Create2Factory.sol/Create2Factory.json",
+      "contracts/out/StdStorage.sol/stdStorage.json",
+      "contracts/out/StdStorage.sol/stdStorageSafe.json",
+      "contracts/out/Script.sol/Script.json",
+      "contracts/out/StdUtils.sol/StdUtils.json",
+      "contracts/out/Create2.sol/Create2.json",
+      "contracts/out/DeployCreate2.s.sol/DeployCreate2.json",
+      "contracts/out/StdMath.sol/stdMath.json"
+    ],
+    "metadata": []
+  },
+  "webUrl": "https://studio.arc.io/app/caac8290-b4d2-4489-aa78-fb294c2d155e",
+  "questions": null,
+  "errorMessage": null,
+  "traceId": null,
+  "budget": null
+}

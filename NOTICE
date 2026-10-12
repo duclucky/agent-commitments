@@ -1,0 +1,13 @@
+Agent Commitments is an independent community project.
+Project-authored code is licensed under Apache License 2.0.
+
+Dependencies retain their licenses and copyright notices:
+- OpenZeppelin Contracts 5.6.1: MIT; imported by Solidity contracts.
+- viem 2.57.4: MIT; ABI encoding, EIP-712 helpers and RPC clients.
+- Circle Developer-Controlled Wallets SDK 9.2.0: optional example;
+  its package license and terms remain applicable.
+
+Arc/Circle documentation and ERC-8183 Draft interfaces informed the design.
+The mainnet escrow/adapter are project implementations, not official Circle
+deployments. No sponsorship, certification or endorsement is implied.
+See docs/capability-matrix.md and ADR 0005 for provenance.

@@ -1,0 +1,62 @@
+{
+  "preparedAt": "2026-10-12T07:55:05.826Z",
+  "chainId": 5042,
+  "observedBlock": "25549517",
+  "mode": "prepare-only",
+  "broadcasts": 0,
+  "owner": "0x7329d0F937dAa2f16Ff0869C5E05a907A4c17dC2",
+  "proposedAmountUnits": "10000",
+  "contracts": {
+    "vault": "0x2415a87B0b9280C1989F03ceA9DC1c3644777862",
+    "adapter": "0x0db5f0CC38F86e60FEbe495d4fFAF2Bb0288704d",
+    "escrow": "0x19E14a1006d106882D4c24584AAA6Ce1771E4151"
+  },
+  "funding": {
+    "physicalBalance": "0",
+    "recordedBacking": "0",
+    "unassignedBalance": "0",
+    "backingShortfall": "0",
+    "observedAt": "2026-10-12T07:55:05.619Z",
+    "observedBlock": "25549517"
+  },
+  "calls": {
+    "oneTimeBinding": {
+      "chainId": 5042,
+      "to": "0x2415a87B0b9280C1989F03ceA9DC1c3644777862",
+      "value": "0",
+      "data": "0xab1da79c0000000000000000000000000db5f0cc38f86e60febe495d4ffaf2bb0288704d"
+    },
+    "exactApproval": {
+      "chainId": 5042,
+      "to": "0x3600000000000000000000000000000000000000",
+      "data": "0x095ea7b30000000000000000000000002415a87b0b9280c1989f03cea9dc1c36447778620000000000000000000000000000000000000000000000000000000000002710",
+      "value": "0"
+    },
+    "deposit": {
+      "chainId": 5042,
+      "to": "0x2415a87B0b9280C1989F03ceA9DC1c3644777862",
+      "data": "0xb6b55f250000000000000000000000000000000000000000000000000000000000002710",
+      "value": "0"
+    }
+  },
+  "estimation": {
+    "bindingGas": "44541",
+    "approvalGas": "56229",
+    "gasPriceWei": "20000001152",
+    "initialGasCostWei": "2015400116087040",
+    "ownerBalanceUnits": "52000",
+    "note": "Binding and approval estimates only; excludes deposit, role transactions and all smoke lifecycle fees. No fee ceiling or spending approval inferred. Native gas and ERC-20 USDC share one balance; do not sum them."
+  },
+  "activationReady": false,
+  "remainingGates": [
+    "Independent review of pinned contract sources is still absent; self-review is recorded separately.",
+    "Select a provider EOA able to sign the vault's EIP-712 quote; ERC-1271 SCA provider signatures are unsupported.",
+    "Select and authorize provider/evaluator signers, the exact pilot scope and a total fee ceiling after full simulation.",
+    "Reverify state before one-time binding; do not execute deposit before confirmed exact approval."
+  ],
+  "smokeSequence": [
+    "reserve/dispatch/price/fund/reject/reconcile using 0.01 USDC",
+    "reserve/dispatch/price/fund/submit/complete/reconcile using the recovered 0.01 USDC",
+    "withdraw remaining A; capture receipts, balances and D/A/R/E/S/W"
+  ]
+}

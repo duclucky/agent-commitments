@@ -1,0 +1,14 @@
+{
+  "name": "@agent-commitments/worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prebuild": "pnpm --filter @agent-commitments/runtime build",
+    "build": "tsc -p tsconfig.json",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "pretypecheck": "pnpm --filter @agent-commitments/runtime build",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": { "@agent-commitments/runtime": "workspace:*" }
+}

@@ -1,0 +1,28 @@
+{
+  "preparedAt": "2026-10-11T17:02:42.070Z",
+  "network": "Arc Testnet",
+  "chainId": 5042002,
+  "verifier": "blockscout",
+  "verifierUrl": "https://explorer.testnet.arc.io/api/",
+  "publicationPerformed": false,
+  "contracts": [
+    {
+      "contract": "BudgetVault",
+      "address": "0x0A1AbBf8b795e30F305C54C53A2404a595aF923a",
+      "transactionHash": "0x56c2dd32e5927344460bddc58bfecc40e6c642b972f7290516a8741fd0457f89",
+      "creationInputMatched": true,
+      "runtimeCodeHash": "0x5dedc337a7f9a835f266b1479973bf07257af5f6a6abe81f1fa4552731cda35b",
+      "constructorArgsFile": "verification/arc-testnet/BudgetVault.constructor-args.txt",
+      "standardInputFile": "verification/arc-testnet/BudgetVault.standard-input.json"
+    },
+    {
+      "contract": "ERC8183Adapter",
+      "address": "0x18EF2ad61947800e9F3574b65cee4fd2b4361a4a",
+      "transactionHash": "0x07076b8687d64155563ba058017938c6404d9a0c3ae9289aeff75ba4e883e583",
+      "creationInputMatched": true,
+      "runtimeCodeHash": "0x5ff792230520fa0f041264ec5b7ab8f1d41ac8b63ea9b09090940a9874c295f0",
+      "constructorArgsFile": "verification/arc-testnet/ERC8183Adapter.constructor-args.txt",
+      "standardInputFile": "verification/arc-testnet/ERC8183Adapter.standard-input.json"
+    }
+  ]
+}

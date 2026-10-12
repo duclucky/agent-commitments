@@ -1,0 +1,25 @@
+{
+  "verified": true,
+  "verifiedAt": "2026-10-12T08:05:37.705Z",
+  "chainId": 5042,
+  "rpcUrl": "https://rpc.mainnet.arc.io",
+  "budgetVault": "0x2415a87B0b9280C1989F03ceA9DC1c3644777862",
+  "checkedCreate2Deployer": "0x01c9f78F19aCe62D3517AE883984b60Ab72Ee94C",
+  "adapter": "0x0000000000000000000000000000000000000000",
+  "funded": false,
+  "compiledSourceContentMatch": true,
+  "draftCandidate": {
+    "escrow": "0x19E14a1006d106882D4c24584AAA6Ce1771E4151",
+    "adapter": "0x0db5f0CC38F86e60FEbe495d4fFAF2Bb0288704d",
+    "bound": false,
+    "creationAndRuntimeArtifactMatch": true
+  },
+  "ledger": {
+    "deposited": "0",
+    "available": "0",
+    "reserved": "0",
+    "inEscrow": "0",
+    "settled": "0",
+    "withdrawn": "0"
+  }
+}

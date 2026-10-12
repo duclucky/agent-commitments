@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 1,
+  "network": "Arc Testnet",
+  "chainId": 5042002,
+  "rpcUrl": "https://rpc.testnet.arc.io",
+  "explorerUrl": "https://explorer.testnet.arc.io",
+  "deployedAt": "2026-10-11",
+  "sourceRevision": null,
+  "sourceRevisionNote": "The workspace was not a Git checkout at deployment time.",
+  "toolchain": {
+    "forge": "1.7.1 (4072e48705af9d93e3c0f6e29e93b5e9a40caed8)",
+    "solc": "0.8.30",
+    "optimizer": true,
+    "optimizerRuns": 200,
+    "evmVersion": "cancun"
+  },
+  "owner": "0x2503A16442F21B3B01f04EFd5205EE8B04F9bb79",
+  "usdc": {
+    "address": "0x3600000000000000000000000000000000000000",
+    "decimals": 6
+  },
+  "budgetVault": {
+    "address": "0x0A1AbBf8b795e30F305C54C53A2404a595aF923a",
+    "transactionHash": "0x56c2dd32e5927344460bddc58bfecc40e6c642b972f7290516a8741fd0457f89",
+    "blockNumber": 66675920,
+    "codeBytes": 12420,
+    "codeHash": "0x5dedc337a7f9a835f266b1479973bf07257af5f6a6abe81f1fa4552731cda35b"
+  },
+  "erc8183Adapter": {
+    "address": "0x18EF2ad61947800e9F3574b65cee4fd2b4361a4a",
+    "transactionHash": "0x07076b8687d64155563ba058017938c6404d9a0c3ae9289aeff75ba4e883e583",
+    "blockNumber": 66675920,
+    "codeBytes": 6351,
+    "codeHash": "0x5ff792230520fa0f041264ec5b7ab8f1d41ac8b63ea9b09090940a9874c295f0"
+  },
+  "adapterBinding": {
+    "transactionHash": "0xe049a5cc248129a647777e6010fad11596446ef5ff19e703904b257f43866536",
+    "blockNumber": 66675920
+  },
+  "erc8183Escrow": {
+    "address": "0x0747EEf0706327138c69792bF28Cd525089e4583",
+    "implementation": "0xa316fd02827242d537f84730f8a37d0ba5fd351a",
+    "implementationCodeHash": "0x7054f89cadf92af85003313db92e9b29ef670ee2c7a20b5295cdddf66ecaa4b3"
+  },
+  "policy": {
+    "rootGrantId": "0x02f05d19a8c5f202be208fca179ffc39247e449527cc0a8604e7168f749d9622",
+    "rootExpiresAt": 1794325760,
+    "depositCap": "100000000",
+    "maxCommitmentAmount": "25000000",
+    "maxConcurrentCommitments": "4"
+  },
+  "deploymentFeeWei": "112866330962786709",
+  "liveSmoke": {
+    "executedAt": "2026-10-11",
+    "internalTestTraffic": true,
+    "amountAtomic": "100000",
+    "commitmentId": "0x6f5380e5ab28ed882964eeb8a07dff8c2d805fb9deece404fc5ee591baff59cc",
+    "jobId": "186887",
+    "reservationStatus": 3,
+    "jobStatus": 3,
+    "transactionHashes": {
+      "approve": "0xc5749ae831e4e41ad9aa91aaaf402317b4a55c442979a1438a641811d15a4098",
+      "deposit": "0x7259d9798c50a5a08f08264bfe559bef4acc017eba3beaa7cef28879f195d08b",
+      "createGrant": "0x05837548bd3b0ba14c9f8081cc90a782c5dc0e14435623c46b3ef6d78f1d659c",
+      "reserve": "0x0a47551e0afccf8eb548b56b93f144fecf795bc17b50e4e4995bfe031ffe9cc0",
+      "dispatch": "0xffe7014b403e7dab73e40ec97385512000c8106dd45e2474c1171be1151515d9",
+      "setBudget": "0xfc5b8269478d5ae2d185ca3a0d142b04d6fbd4772e0f0b3b0a4ac553b5c5a145",
+      "fund": "0x531f5ec0c9c50883baab53403d507cb27d740d13ec72056c58b52ab85d761dad",
+      "submit": "0xafd18cd8ef0a7fcb31e79a1d1074bd05b29332f2b9deeaddad89b87de7ca700f",
+      "complete": "0x8a8c9c9d07a3b0d0d5f4e60f6cbaaa0930a53c46ba472d18391a60c5b2280af6",
+      "reconcile": "0xfa8f0f39c6083d0124ffdacf845cf36d4925f03d2b5ad48810d011935bdd3fb1"
+    },
+    "transactionFeeWei": "46816361260542828",
+    "postFlowLedger": {
+      "deposited": "100000",
+      "available": "0",
+      "reserved": "0",
+      "inEscrow": "0",
+      "settled": "100000",
+      "withdrawn": "0"
+    }
+  },
+  "recoverySmoke": {
+    "executedAt": "2026-10-11",
+    "internalTestTraffic": true,
+    "amountAtomic": "100000",
+    "commitmentId": "0xe2631314db947800ba4ef777c23ae25a676d1f7b061747004a207e67219848dc",
+    "jobId": "186888",
+    "reservationStatus": 4,
+    "jobStatus": 4,
+    "transactionHashes": {
+      "approve": "0xd7e32e6d38c175affb9a8b859320f6fc993005df01b940de945b4be8994a71ac",
+      "deposit": "0xcac03cb7fcbe3d3f001f62f0992bf7603982fa7b951b72d49711946f3a89e833",
+      "createGrant": "0x4da480ac555f462c541a6007f85453d2f29b205fcb066fefd03382f42d012895",
+      "reserve": "0x79f347353dd6a634ee0dd123d6c1dab929fcf1bbd2a03d89d021a6d76aaa2a64",
+      "dispatch": "0x45b7811e4b532a96a381fcadd0c27fdbac3c5d8e0ac0fab52a936fc02c2dd156",
+      "setBudget": "0x6c8677c54569f56654c84027461e20b5a6cac77cdd3fb95cfe02be20b130cba2",
+      "fund": "0x725fcf97baefe989b4ddc3bee47cc01727a049b1d1a4baea36259e6d5b4b6301",
+      "reject": "0xb2bf4a586f3dd7a805238a3bdb78e5dcdb7887367fe82bd13bc62f6d80f83971",
+      "reconcile": "0x7803f216a5e2eff2ec0e1cb737bdf819a01ba88b18a4f07ffd58a46b13db5fd1",
+      "withdrawRefund": "0x16ee0231ef3b8a5004308960154c1cd460d90796e3331103c5bae92f5b45760f"
+    },
+    "transactionFeeWei": "50984960000000000",
+    "postFlowLedger": {
+      "deposited": "200000",
+      "available": "0",
+      "reserved": "0",
+      "inEscrow": "0",
+      "settled": "100000",
+      "withdrawn": "100000"
+    }
+  },
+  "multiRoleSmoke": {
+    "executedAt": "2026-10-11",
+    "internalTestTraffic": true,
+    "amountAtomic": "100000",
+    "commitmentId": "0xbc8eb6d2eaee114d7ce2a67a7748e9b7fae827bdd1e4e69c1fc3ea575fe6e019",
+    "jobId": "186889",
+    "reservationStatus": 3,
+    "jobStatus": 3,
+    "roles": {
+      "budgetOwner": "0x2503A16442F21B3B01f04EFd5205EE8B04F9bb79",
+      "escrowClient": "0x18EF2ad61947800e9F3574b65cee4fd2b4361a4a",
+      "provider": "0x0A85AB57c0caCadB6f44c2Ac14D926a8A682b0D3",
+      "evaluator": "0x9c135CDc1C4B9EA30548FF975634021cc7501440"
+    },
+    "transactionHashes": {
+      "fundProviderWallet": "0x3089f541363b20d92c9b02b89b95946d0ab3073e20c783b25fdf08555e450ffd",
+      "fundEvaluatorWallet": "0x74da3d8aaad2bffc67aabba7b107ac627dc463cfb12e5407c84ed743d1f00b05",
+      "approve": "0x8b511380737ad932ef8fccd696cddecd10d442f5fe4127aafafb9f2cd47230f3",
+      "deposit": "0x86ce54f81dad6a702c7efbf0a710afa7761c31e1cc9a8c75b0ccfcd54702b353",
+      "createGrant": "0x41a9edc521556d83c7eee1b8e2b006767a19e2abb583da735fd548f553a95df1",
+      "reserve": "0x0355a2b7a4285b8ae6e9846f981990a7cbb7f79b5521072183dcf9a74cc46f10",
+      "dispatch": "0x8d1a9e6b925df673078e1d2bdae40da60df3f977ed2a5ddb7991800f72d7923c",
+      "setBudget": "0xfe9f2d864266d7b1b2f0db7b93ea07d8f790a844e74d6a8165174f50de80e4d7",
+      "fund": "0xe01fe712a967095f816e76e064c2489ce6c25e9ed7e86e3907d977aae9436c92",
+      "submit": "0xa5b9d808011dce8cd2ee00e030250edff0a556060788c41abeaf539662d6799e",
+      "complete": "0x3f00dee59ae3f321fc02733f6d9715a587a0e81c23dbae19a4ef6f85d688d262",
+      "reconcile": "0xc8609bd020996765a3f5351fc14f7f963b550cb2e54e27bc9126c03aa64195ea"
+    },
+    "transactionFeeWei": "61354048701909041",
+    "postFlowLedger": {
+      "deposited": "300000",
+      "available": "0",
+      "reserved": "0",
+      "inEscrow": "0",
+      "settled": "200000",
+      "withdrawn": "100000"
+    }
+  },
+  "expectedLedger": {
+    "deposited": "300000",
+    "available": "0",
+    "reserved": "0",
+    "inEscrow": "0",
+    "settled": "200000",
+    "withdrawn": "100000"
+  },
+  "expectedTokenState": {
+    "vaultBalance": "0",
+    "adapterBalance": "0",
+    "adapterEscrowAllowance": "0"
+  },
+  "supersedes": {
+    "budgetVault": "0x94c82EA02Bf1F378393E86D8Ff563A6122F182e3",
+    "erc8183Adapter": "0x21C49eB4d81436Fa72D22fcC414da178d949a764",
+    "reason": "The prior adapter incorrectly called provider-only setBudget as the ERC-8183 client. Both old contracts have a zero ledger and must not be used."
+  },
+  "sourceVerification": "prepared-not-published"
+}

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Agent Commitments Console</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="topbar">
+    <a class="brand" href="#main" aria-label="Agent Commitments — overview">
+      <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 3 28 10v12l-12 7L4 22V10l12-7Zm0 5-7 4v8l7 4 7-4v-8l-7-4Zm0 3 4 2.3v5.4L16 21l-4-2.3v-5.4L16 11Z"/></svg>
+      <span>Agent Commitments</span>
+    </a>
+    <div class="network"><span class="network-dot" aria-hidden="true"></span> Local demo · Arc model</div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">USDC CONTROL PLANE</p>
+        <h1 id="page-title">Clear commitments before agents spend.</h1>
+        <p class="lede">Track available budget, reservations, escrow and settlement as distinct economic states.</p>
+      </div>
+      <div class="demo-action">
+        <button id="new-commitment" class="primary" type="button" aria-describedby="demo-status">Prepare demo commitment</button>
+        <p id="demo-status" class="action-status" role="status">Local demo: no transactions broadcast.</p>
+        <nav class="mode-nav" aria-label="Data source"><a href="?mode=mainnet">Mainnet · read-only</a><a href="?mode=demo">Local demo</a></nav>
+      </div>
+    </section>
+
+    <section aria-labelledby="ledger-title">
+      <div class="section-heading"><div><p class="eyebrow">ROOT BUDGET</p><h2 id="ledger-title">USDC ledger</h2></div><p class="conservation">D = A + R + E + S + W</p></div>
+      <div class="metric-grid" id="metrics"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="commitment-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">OPERATIONS</p><h2 id="commitment-title">Recent commitments</h2></div>
+        <div class="segmented" role="group" aria-label="Demo scenarios">
+          <button type="button" data-scenario="success" aria-pressed="true">Settled</button>
+          <button type="button" data-scenario="refund" aria-pressed="false">Refund</button>
+          <button type="button" data-scenario="unknown" aria-pressed="false">UNKNOWN</button>
+          <button type="button" data-scenario="refund-blocked" aria-pressed="false">Refund blocked</button>
+          <button type="button" data-scenario="refund-ready" aria-pressed="false">Refund ready</button>
+          <button type="button" data-scenario="donation" aria-pressed="false">Direct transfer</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Operation</th><th>Provider</th><th>Amount</th><th>Economic state</th><th>Transaction</th><th>Evidence</th></tr></thead>
+          <tbody id="commitments"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="recovery recovery-detail" aria-labelledby="refund-title">
+      <div>
+        <p class="eyebrow">REFUND RECONCILIATION · DEMO</p>
+        <h2 id="refund-title">No refund to reconcile</h2>
+        <p id="refund-message" role="status" aria-atomic="true"></p>
+        <p class="action-status" id="refund-scope">Simulated local data. Recheck reads the scenario only; it does not connect to mainnet RPC or sign transactions.</p>
+        <button class="link-button" id="recheck-refund" type="button" aria-describedby="refund-scope">Recheck (demo)</button>
+      </div>
+    </section>
+    <section class="panel funding-panel" aria-labelledby="funding-title">
+      <p class="eyebrow">BUDGET FUNDING</p>
+      <h2 id="funding-title">Fund USDC through deposit</h2>
+      <p>Approve the exact amount for the vault, then call deposit. Do not transfer USDC directly to the vault: direct transfers do not credit the budget and currently cannot be recovered.</p>
+      <p id="funding-message" role="status" aria-atomic="true"></p>
+      <p class="mono">Unassigned · <span id="unassigned-balance">0.000000</span> USDC (<span id="funding-mode">demo</span>)</p>
+    </section>
+
+    <section class="recovery" aria-labelledby="recovery-title">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 1-8.1 5.1l1.8.9A7 7 0 1 0 8 6.3V10H6V3h7v2H9.6A8.9 8.9 0 0 1 12 3Zm-1 5h2v5h-2V8Zm0 7h2v2h-2v-2Z"/></svg>
+      <div><h2 id="recovery-title">Recovery requires on-chain evidence</h2><p>A transaction hash alone does not prove success. For UNKNOWN transactions, check the receipt using the same hash; a timeout must not create a new payment.</p></div>
+    </section>
+    <p id="announcer" class="sr-only" aria-live="polite"></p>
+  </main>
+</body>
+</html>

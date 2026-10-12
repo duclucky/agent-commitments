@@ -1,0 +1,81 @@
+{
+  "preparedAt": "2026-10-12T04:13:16.180Z",
+  "provider": "Circle Arc Studio",
+  "cliVersion": "1.1.3",
+  "appId": "caac8290-b4d2-4489-aa78-fb294c2d155e",
+  "threadId": "61bfa3f8-95bc-4d25-951c-25cb8d43addb",
+  "session": "agent-commitments-audit-2026-10-12",
+  "authorizationScope": "Audit only; reference sources and isolated local PoC; no deployment, binding, token approval, funding or source modification",
+  "files": [
+    {
+      "path": "contracts/src/BudgetVault.sol",
+      "bytes": 18888,
+      "sha256": "835e265538dc8f0c3fe81b17b6aa33c980eaeb7c61fa00e2d7513db424153a52"
+    },
+    {
+      "path": "contracts/src/AgenticCommerceEscrow.sol",
+      "bytes": 8563,
+      "sha256": "233f739746e6b4c0d6e9566596e50d00695f096a6da918979e9c594c89624c20"
+    },
+    {
+      "path": "contracts/src/ERC8183DraftAdapter.sol",
+      "bytes": 7292,
+      "sha256": "20cbcf01b8ae3c46fa1468a69052ffb565fd3a1b5e5fbe8528eaade0a3486d49"
+    },
+    {
+      "path": "contracts/src/interfaces/IAgenticCommerceDraft.sol",
+      "bytes": 1546,
+      "sha256": "ca95a9ba2b8ee1ec7088135cc15ed9268aa14ef466b21796d99d352aaf956c3b"
+    },
+    {
+      "path": "contracts/test/BudgetVault.t.sol",
+      "bytes": 15304,
+      "sha256": "b92f7d4b4f1605f3701f3dd065de0ff6a4fc943df4b82a0269157074b9a6c13f"
+    },
+    {
+      "path": "contracts/test/AgenticCommerceEscrow.t.sol",
+      "bytes": 8430,
+      "sha256": "7182269a352c9c458d5443a5a2618c66cfeb8bc87ae290ab33697279030f58bf"
+    },
+    {
+      "path": "contracts/test/AgenticCommerceEscrowAdversarial.t.sol",
+      "bytes": 4592,
+      "sha256": "3b004c41195bf31a9d56cd2a9f6b758b31dc4f5e0feb9aa334cd8fec01e26739"
+    },
+    {
+      "path": "contracts/test/ERC8183DraftAdapter.t.sol",
+      "bytes": 10289,
+      "sha256": "3d14a7f8b043f3c631ff5cca76c09329710165d1832abe0ebeb4d54d067f9df7"
+    },
+    {
+      "path": "contracts/test/TestSupport.sol",
+      "bytes": 3489,
+      "sha256": "e379c48fc8ef9e2a0750373c150cd940e4e005857c4a83b2df0f00ec88828e2b"
+    },
+    {
+      "path": "contracts/foundry.toml",
+      "bytes": 243,
+      "sha256": "7775c44f3bfa19297fe3e9ef6558f947bca5e18b66cfa0cbed94a110135c7d14"
+    },
+    {
+      "path": "docs/adr/0005-mainnet-agentic-commerce-escrow.md",
+      "bytes": 3024,
+      "sha256": "af4890df6e4b620af02e05e67719948e986764ed8ecc8f58b202dd4c328986e1"
+    }
+  ],
+  "deployedContracts": [
+    {
+      "address": "0x2415a87B0b9280C1989F03ceA9DC1c3644777862",
+      "codeHash": "0x9d39228432ff3a2fed8a959c9a8692109f0fb5f77db12d3b7061089fda388bc2"
+    },
+    {
+      "address": "0x19E14a1006d106882D4c24584AAA6Ce1771E4151",
+      "codeHash": "0xd7d2f4b47c3ead3ae5bcaa7db790d5841577aa347cf7b433a8dbdf9566a882fb"
+    },
+    {
+      "address": "0x0db5f0CC38F86e60FEbe495d4fFAF2Bb0288704d",
+      "codeHash": "0xac4382e1add9828e48bce8c0569fa77d53442cfa7e3ae8832270f75afead4da6"
+    }
+  ],
+  "independentHumanAudit": false
+}

@@ -1,0 +1,8 @@
+{
+  "chainId": 5042,
+  "role": "pilot-provider",
+  "address": "0xDc69A0851c1a7C887bEe33f0A58a675E2Edc0C4c",
+  "generatedAt": "2026-10-12T11:02:28.8091711+00:00",
+  "keyStorage": "Encrypted V3 keystore outside repository; password protected with Windows DPAPI",
+  "sharedNetworkTransactions": 0
+}

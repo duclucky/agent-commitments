@@ -1,0 +1,12 @@
+{
+  "data": {
+    "message": "Crypto fund data",
+    "eip681Uri": "ethereum:0x3600000000000000000000000000000000000000@5042/transfer?address=0x7329d0f937daa2f16ff0869c5e05a907a4c17dc2&uint256=258000",
+    "address": "0x7329d0f937daa2f16ff0869c5e05a907a4c17dc2",
+    "blockchain": "ARC",
+    "chainId": 5042,
+    "token": "USDC",
+    "contract": "0x3600000000000000000000000000000000000000",
+    "amount": "0.258"
+  }
+}

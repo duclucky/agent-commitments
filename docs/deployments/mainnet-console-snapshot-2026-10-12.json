@@ -1,0 +1,42 @@
+{
+  "chainId": 5042,
+  "readOnly": true,
+  "observedBlock": "25577700",
+  "observedAt": "2026-10-12T11:53:24.729Z",
+  "ledger": {
+    "deposited": "10000",
+    "available": "0",
+    "reserved": "0",
+    "inEscrow": "0",
+    "settled": "5000",
+    "withdrawn": "5000"
+  },
+  "funding": {
+    "physicalBalance": "0",
+    "recordedBacking": "0",
+    "unassignedBalance": "0",
+    "backingShortfall": "0"
+  },
+  "operations": [
+    {
+      "commitmentId": "0x1c04c0559c814b1bfde9c1fe6e2404a3359e34b329f901c2506de9c900051d36",
+      "provider": "0xDc69A0851c1a7C887bEe33f0A58a675E2Edc0C4c",
+      "amount": "10000",
+      "economicStatus": "REFUNDED",
+      "transportState": "CONFIRMED",
+      "escrowStatus": "REJECTED",
+      "jobId": "1",
+      "transactionHash": "0x1ba4d834fe889d1e59f9f5c14738692ea98559527ccc0173a6e9f334996ea213"
+    },
+    {
+      "commitmentId": "0xfda75770779541f60e82e0d15fd13c9ac2472145b5b8cddf129f32ba60ea2266",
+      "provider": "0xDc69A0851c1a7C887bEe33f0A58a675E2Edc0C4c",
+      "amount": "5000",
+      "economicStatus": "SETTLED",
+      "transportState": "CONFIRMED",
+      "escrowStatus": "COMPLETED",
+      "jobId": "2",
+      "transactionHash": "0x25349259b1094b2b9591d12a6a9e06b25d7fec0b29bfa9597fdd34be58ef9ae5"
+    }
+  ]
+}

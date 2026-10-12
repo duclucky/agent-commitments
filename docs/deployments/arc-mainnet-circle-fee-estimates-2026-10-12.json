@@ -1,0 +1,39 @@
+{
+  "checkedAt": "2026-10-12T08:18:10.988Z",
+  "mode": "estimate-only",
+  "broadcasts": 0,
+  "results": {
+    "binding": {
+      "data": {
+        "blockchain": "ARC",
+        "medium": {
+          "gasLimit": "283773",
+          "networkFee": "0.01211615925",
+          "networkFeeRaw": "0.00408894925",
+          "baseFee": "20",
+          "priorityFee": "2.25",
+          "maxFee": "42.25"
+        },
+        "callGasLimit": "54827",
+        "verificationGasLimit": "50975",
+        "preVerificationGas": "77971"
+      }
+    },
+    "approval": {
+      "data": {
+        "blockchain": "ARC",
+        "medium": {
+          "gasLimit": "318062",
+          "networkFee": "0.014094622302140968",
+          "networkFeeRaw": "0.005211682141048968",
+          "baseFee": "20",
+          "priorityFee": "3.900001564",
+          "maxFee": "43.900001564"
+        },
+        "callGasLimit": "89181",
+        "verificationGasLimit": "51025",
+        "preVerificationGas": "77856"
+      }
+    }
+  }
+}

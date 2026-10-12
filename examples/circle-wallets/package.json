@@ -1,0 +1,17 @@
+{
+  "name": "@agent-commitments/circle-wallets-example",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "example": "tsx src/index.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@agent-commitments/sdk": "workspace:*",
+    "@circle-fin/developer-controlled-wallets": "9.2.0",
+    "viem": "2.57.4"
+  }
+}
