@@ -40,6 +40,7 @@ Preparing a call does not create a grant or reservation. See the [standalone sta
 | SDK | Prepare-only calls, stable IDs, typed inspection, refund simulation and backing checks |
 | Runtime | Durable outbox, separate broadcast/receipt leases, restart handling and PostgreSQL projections |
 | Failure tests | Accounting, replay, authority, concurrency, timeout and recovery cases |
+| ResolveSignal x402 client | Existing Circle wallet, quote validation and durable recovery without deploying new contracts; locally verified candidate |
 
 The document workflow and console are examples. The reusable core consists of contracts, SDK, state model and failure tests that other builders can import or extend.
 
@@ -125,16 +126,16 @@ pnpm check:docs
 ## Limits
 
 - Independent security review is pending. Circle Arc Studio was tool-assisted self-review with partial static analysis.
-- Provider quotes require ECDSA EOAs; ERC-1271 signatures are unsupported. Transaction authority is a separate concern.
+- Provider budget-envelope quotes require ECDSA EOAs. The direct ResolveSignal wallet client is a separate payment path and does not change that signature support.
 - Adapters target different pinned ERC-8183 ABIs. Mainnet covers a documented Draft subset, not full/future conformance. See [ADR 0005](docs/adr/0005-mainnet-agentic-commerce-escrow.md).
 - Circle Developer-Controlled Wallets executor is testnet-only and not broadcast-verified. The mainnet pilot used Circle Agent Wallet CLI; these are distinct integrations.
-- CCTP funding is a deterministic state model; no live route is enabled. Gateway, AP2 and x402 compatibility are not claimed.
+- CCTP funding is a deterministic state model; no live route is enabled. Gateway and AP2 compatibility are not claimed. ResolveSignal x402 v2 exact is locally tested; live facilitator/mainnet integration is pending.
 - Evaluator decisions and issuer restrictions affect acceptance/refund liveness. Guarantees apply only to supported flows through these contracts.
 - Hosted operation still needs ingress rate limits, TLS, monitoring and backups. No external customer adoption is verified.
 
 See the [documentation index](docs/README.md) for current guides, release evidence and historical drafts.
 
-Agent Commitments is listed in [ResolveSignal Toolkits](https://resolvesignal.com/toolkits). It complements the paid decision API with budget primitives; a direct x402 integration is pending. Agent Starter is planned.
+Agent Commitments is listed in [ResolveSignal Toolkits](https://resolvesignal.com/toolkits). The [direct ResolveSignal x402 integration](docs/integrations/resolvesignal-x402.md) uses an existing Circle wallet for the existing 0.06 USDC API call. It needs no new contract, deposit or adapter. This path spends directly from the wallet and does not inherit BudgetVault accounting or shared-budget guarantees. It is a locally verified source candidate in SDK `0.1.0-alpha.2`, not part of the published alpha.1 archive. Run `pnpm pack:sdk` to build it locally. Live Circle paid testing and independent review remain pending. Agent Starter is planned.
 
 Read [architecture](docs/architecture.md), [threat model](docs/threat-model.md), [recovery](docs/runbooks/recovery.md), [security](SECURITY.md), [contributing](CONTRIBUTING.md) and [changelog](CHANGELOG.md). Primary builder documentation is English; dated research/operator notes may retain their original Vietnamese text.
 

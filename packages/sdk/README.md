@@ -25,4 +25,21 @@ Use `createArcMainnetPilotClient(reader)` to read the bound internal pilot. Its 
 
 All monetary amounts are bigint atomic units: 1 USDC = 1_000_000n. Arc's native 18-decimal gas interface and 6-decimal ERC-20 interface expose the same asset; never add the balances.
 
-Read the [integration guide](https://github.com/duclucky/agent-commitments/blob/main/docs/integration.md), [SDK API reference](https://github.com/duclucky/agent-commitments/blob/main/docs/sdk-api.md) and [security policy](https://github.com/duclucky/agent-commitments/blob/main/SECURITY.md). Providers currently require ECDSA EOA quote signatures; ERC-1271 is unsupported. The ERC-8183 Draft adapter covers only the documented subset. Independent security review is pending. This alpha is for experimentation, not a production safety claim.
+The source candidate `0.1.0-alpha.2` adds `ResolveSignalX402Session` for
+ResolveSignal's existing x402 v2 exact API on Arc, using your existing Circle
+wallet. The current API fee is 0.06 USDC (`60_000n`). No new contract, budget
+deposit or adapter is required. Durable recovery state prevents an automatic
+second purchase after a lost paid response. `CircleCliResolveSignalWallet` and
+`FileResolveSignalSessionStore` are optional Node exports from
+`@agent-commitments/sdk/resolvesignal-node`; browser code supplies its own wallet
+adapter and private CAS store. See the [ResolveSignal guide](https://github.com/duclucky/agent-commitments/blob/main/docs/integrations/resolvesignal-x402.md).
+
+That integration is locally verified, not present in the published alpha.1
+archive above. Build with `pnpm pack:sdk` and install the generated alpha.2
+archive locally. End-to-end testing uses the real API and escrow on an isolated
+chain, with simulated Circle custody/CLI and model/facilitator. Live Circle paid
+testing remains pending. Callers provide their wallet permissions and private
+recovery/business-result storage. Direct wallet purchases bypass BudgetVault;
+they do not inherit its hierarchical budget enforcement or accounting.
+
+Read the [integration guide](https://github.com/duclucky/agent-commitments/blob/main/docs/integration.md), [SDK API reference](https://github.com/duclucky/agent-commitments/blob/main/docs/sdk-api.md) and [security policy](https://github.com/duclucky/agent-commitments/blob/main/SECURITY.md). Provider budget-envelope signatures remain ECDSA EOA only. The ERC-8183 Draft adapter covers only the documented subset. Independent security review is pending. This alpha is for experimentation, not a production safety claim.

@@ -26,7 +26,9 @@ await copyFile(join(root,"packages/sdk/README.md"),join(stage,"README.md"));
 const manifest = {
   name:sourceManifest.name, version:sourceManifest.version, description:"Shared USDC budgets, signed commitments and recovery primitives for Arc builders",
   type:"module", license:"Apache-2.0", engines:{node:">=22"},
-  exports:{".":{types:"./dist/index.d.ts",import:"./dist/index.js"}}, types:"./dist/index.d.ts",
+  exports:{".":{types:"./dist/index.d.ts",import:"./dist/index.js"},
+    "./resolvesignal-node-store":{types:"./dist/resolvesignal-node-store.d.ts",import:"./dist/resolvesignal-node-store.js"},
+    "./resolvesignal-node":{types:"./dist/resolvesignal-node.d.ts",import:"./dist/resolvesignal-node.js"}}, types:"./dist/index.d.ts",
   files:["dist","README.md","LICENSE"], dependencies:{viem:sourceManifest.dependencies.viem},
   repository:{type:"git",url:"https://github.com/duclucky/agent-commitments.git",directory:"packages/sdk"},
 };

@@ -13,6 +13,7 @@ Verified 2026-10-12 from official Arc and Circle documentation plus read-only RP
 | Gateway / Nanopayments | Not verified for Arc mainnet in this release | Documented in Agent Stack materials | Out of local alpha; no compatibility claim |
 | CCTP/App Kit Bridge | Route and contract addresses require a separate release check | Arc documentation exposes bridge workflows | M7 disabled until a route manifest and recovery test exist |
 | AP2 | Off-chain protocol, no Arc-specific deployment needed | Same | Schema inspiration only; no AP2 compliance claim |
+| ResolveSignal x402 v2 exact (2026-10-16) | Existing seller factory/escrow; SDK uses the existing Circle wallet; seller runtime and roles verified read-only | No deployed integration claim | Client locally tested through real V2 HTTP routes and seller escrow with simulated Circle custody/CLI, model and facilitator. No new contract or BudgetVault funding; live Circle paid testing pending. See ADR 0007 and integration guide |
 
 Sources:
 

@@ -6,6 +6,7 @@ Start with the [project README](../README.md), then:
 
 - [Integration guide](integration.md): boundaries and integration options.
 - [SDK reference](sdk-api.md): supported SDK surface.
+- [ResolveSignal x402 exact](integrations/resolvesignal-x402.md): existing Circle wallet, quote checks and recovery; no new contracts.
 - [Architecture](architecture.md) and [threat model](threat-model.md).
 - [Recovery runbook](runbooks/recovery.md): unknown transactions and restart recovery.
 - [Security policy](../SECURITY.md): review limits and vulnerability reporting.
@@ -15,8 +16,9 @@ Start with the [project README](../README.md), then:
 
 Agent Commitments is a developer primitive for shared USDC budgets and payment
 obligations. It is listed in [ResolveSignal Toolkits](https://resolvesignal.com/toolkits)
-alongside the hosted API Integration Kit. Direct x402 integration and independent
-security review remain pending; Agent Starter is planned. Circle Agent Wallet
+alongside the hosted API Integration Kit. Direct x402 integration is locally
+verified; live Circle paid testing and independent
+security review remain pending. Agent Starter is planned. Circle Agent Wallet
 and Arc Portal continue to own wallet custody, funding and spending limits.
 
 ## Evidence and decisions

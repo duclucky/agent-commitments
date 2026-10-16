@@ -1,4 +1,7 @@
-# SDK API reference — 0.1.0-alpha.1
+# SDK API reference
+
+Published archive: `0.1.0-alpha.1`. Source candidate: `0.1.0-alpha.2`, adding the
+locally verified ResolveSignal x402 integration described below.
 
 Import from `@agent-commitments/sdk` after installing the GitHub release archive. TypeScript declarations ship in the archive; runtime uses viem 2.57.4. No UI, hosted API, database or Circle credentials are needed for prepare/read operations.
 
@@ -47,4 +50,34 @@ Read-only failure is not proof that a transaction failed. A missing receipt is U
 
 `CircleWalletsExecutor` accepts an injected Circle Developer-Controlled Wallets client, walletId and optional feeLevel. `submit`, `inspect` and `waitForFinality` preserve the existing transaction identity. This executor permits only ARC-TESTNET; Circle COMPLETE is transport finality, not an economic acceptance decision.
 
-Use the [integration guide](integration.md) and [standalone starter](../examples/sdk-starter/README.md). The current provider signature path is ECDSA EOA only; ERC-1271, full ERC-8183 conformance and live bridge routes remain unsupported.
+Use the [integration guide](integration.md) and [standalone starter](../examples/sdk-starter/README.md). The current provider signature path is ECDSA EOA only; full ERC-8183 conformance and live bridge routes remain unsupported.
+
+## ResolveSignal x402 source candidate
+
+`ResolveSignalX402Session({payer,operationId,wallet,store,reader,seller?,baseUrl?,fetch?,now?})`
+uses an existing wallet to call the existing x402 API. It requires no new contract,
+BudgetVault funding or grant. Methods:
+
+- `call(request,{salt,maxFeeAtomic,confirmPaidCall,resumeQuote?})`: admits, validates,
+  inspects and pays once under explicit scope. The caller owns business-result storage.
+- `recover()`: read-only original-call and seller-escrow inspection. Never signs,
+  pays, deploys or credits a budget.
+
+`resolveSignalWorkHash(request,salt)` binds a canonical JSON request to a private
+32-byte salt. `validateResolveSignalQuote(quote,binding,policy)` verifies x402 v2
+exact against independent chain data and a bigint spending cap.
+
+`verifyResolveSignalSeller(reader,seller)` and
+`readResolveSignalBinding(reader,seller,escrow)` pin Arc chain 5042, existing
+seller code/roles, USDC decimals and factory lookup. These functions only read.
+
+`CircleCliResolveSignalWallet` and `FileResolveSignalSessionStore(directory)` are
+Node-only exports from `@agent-commitments/sdk/resolvesignal-node`. The wallet uses
+an already installed/authenticated Circle CLI; the private store implements atomic
+create/CAS. The store-only subpath `./resolvesignal-node-store` is also available.
+Browser consumers supply their own `ResolveSignalWallet` and store.
+
+Direct wallet spending bypasses BudgetVault and does not inherit its accounting
+or grant guarantees. All existing contracts/deployments and provider-signature
+support remain unchanged. See the [full guide](integrations/resolvesignal-x402.md)
+for lifecycle, recovery and local verification scope.

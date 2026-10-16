@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.1.0-alpha.2 candidate, unpublished
+
+- ResolveSignal x402 v2 exact client using an existing Circle wallet, with no new contracts or budget deposit.
+- SDK quote/chain validation, request binding, private durable session state and no automatic purchase retry.
+- Circle CLI adapter pins POST, ARC and the exact quote amount; recovery inspects the original call and seller escrow.
+- Node-only wallet/file-store exports and local HTTP/chain integration harness.
+
+Locally verified on Anvil with simulated Circle custody/CLI, model and facilitator.
+No live Circle paid verification or independent review for this client. Direct
+wallet payments bypass BudgetVault accounting and do not inherit its guarantees.
+
 ## 0.1.0-alpha.1 — 2026-10-12
 
 First public experimental builder release; no fabricated earlier release history.

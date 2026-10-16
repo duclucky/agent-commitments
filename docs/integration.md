@@ -71,6 +71,12 @@ Refund states are AWAITING_ESCROW, READY, BLOCKED, UNKNOWN, REFUNDED and NOT_APP
 
 ## Optional integrations
 
+[ResolveSignal x402 exact](integrations/resolvesignal-x402.md) calls the paid
+decision API using an existing Circle wallet. No new contracts, BudgetVault
+deposit or adapter is required. The alpha.2 source candidate is locally tested;
+it is not included in the published alpha.1 archive. This direct-wallet path
+bypasses BudgetVault, so its shared-budget accounting does not apply.
+
 [Circle Developer-Controlled Wallets](integrations/circle-wallets.md) executor preserves calldata and requires persisted idempotency keys. It is testnet-only in this release and distinct from the Agent Wallet CLI used in the mainnet pilot.
 
 The reference API has audience-bound, one-time wallet challenges and tenant-scoped sessions/operation intent. With DATABASE_URL it persists challenge/session hashes/idempotency in PostgreSQL; without it the memory development store is explicitly labelled. Public hosting still needs ingress limits, TLS, rotation, cleanup, backups and monitoring.
